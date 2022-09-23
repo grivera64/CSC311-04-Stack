@@ -50,7 +50,7 @@ public class ArrayStack<E> implements Stack<E> {
     @Override
     public String toString() {
         /* If the array is empty, then print out an empty stack */
-        if (this.tosIndex < 0) {
+        if (this.isEmpty()) {
             return "[]";
         }
 
@@ -68,7 +68,15 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public E pop() {
-        return null;
+        if (this.isEmpty()) {
+            throw new RuntimeException("Stack Underflow!");
+        }
+
+        /* The top of the stack moves down, acts like deletion */
+        E tmp = this.arr[this.tosIndex];
+        this.tosIndex--;
+
+        return tmp;
     }
 
     @Override
@@ -78,6 +86,6 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.tosIndex < 0;           // Negative indices are considered empty
     }
 }

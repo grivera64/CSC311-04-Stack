@@ -6,8 +6,16 @@ public class StackDriver {
 //        Stack<Integer> stack = new ArrayStack<>();
         Stack<Integer> stack = new ArrayStack<>(7);
 
+        /* Test Push */
         stack.push(10);
         System.out.printf("Stack: %s\n", stack);
+
+        stack.pop();
+        System.out.printf("Stack: %s\n", stack);
+
+//        stack.pop();                                // Stack Underflow!
+//        System.out.printf("Stack: %s\n", stack);
+
         stack.push(20);
         System.out.printf("Stack: %s\n", stack);
         stack.push(30);
@@ -20,7 +28,22 @@ public class StackDriver {
         System.out.printf("Stack: %s\n", stack);
         stack.push(70);
         System.out.printf("Stack: %s\n", stack);
-        stack.push(80);                         // Stack Overflow: it'll reallocate more space
+//        stack.push(80);                         // Stack Overflow: it'll reallocate more space
+//        System.out.printf("Stack: %s\n", stack);
+
+        stack.pop();
         System.out.printf("Stack: %s\n", stack);
+        stack.pop();
+        System.out.printf("Stack: %s\n", stack);
+        stack.pop();
+        System.out.printf("Stack: %s\n", stack);
+        stack.pop();
+        System.out.printf("Stack: %s\n", stack);
+        stack.pop();
+        System.out.printf("Stack: %s\n", stack);
+        stack.pop();
+        System.out.printf("Stack: %s\n", stack);
+//        stack.pop();                                  // Stack Underflow
+//        System.out.printf("Stack: %s\n", stack);
     }
 }
