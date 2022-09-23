@@ -1,5 +1,15 @@
 package com.grivera64.datastructure.stack;
 
+/*
+ * Name: Giovanni Rivera
+ * Instructor: Dr. Chatterjee
+ * Course: CSC 311-04
+ * Creation Date: 9/23/2022
+ * Due Date: 9/29/2022
+ * File Name: StackDriver.java
+ * Description: Tests the ArrayStack implementation
+ */
+
 public class StackDriver {
 
     public static void main(String[] args) {
