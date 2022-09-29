@@ -23,13 +23,17 @@ public class ArrayStack<E> implements Stack<E> {
 
     @SuppressWarnings("unchecked")
     public ArrayStack(int capacity) {
+        if (capacity < 0) {
+            throw new IllegalArgumentException("Capacity cannot be negative!");
+        }
         this.arr = (E[]) new Object[capacity];          // Array created here
     }
 
     @Override
     public void push(E element) {
-        /* Create more space if the capacity is too small */
-        if (this.arr.length - 1 <= this.tosIndex) {
+        /* Create more space if the capacity is too small for a new element */
+        int capacity = this.arr.length - 1;
+        if (capacity <= this.tosIndex) {
             System.out.println("Stack Overflow! Reallocating more space...");
             this.reallocate();
         }
@@ -41,7 +45,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     @SuppressWarnings("unchecked")
     private void reallocate() {
-        /* Create and copy the old array to the new array */
+        /* Create and copy the old array to the new array (the top of the stack remains unaffected) */
         E[] newArr = (E[]) new Object[this.arr.length * 2];
         System.arraycopy(this.arr, 0, newArr, 0, this.arr.length);
         this.arr = newArr;
@@ -68,8 +72,9 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public E pop() {
+        /* Throw an exception when there are no elements to pop */
         if (this.isEmpty()) {
-            throw new RuntimeException("Stack Underflow!");
+            throw new IllegalStateException("Stack Underflow!");
         }
 
         /* The top of the stack moves down, acts like deletion */
@@ -81,10 +86,12 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public E peek() {
+        /* Throw an exception if there are no elements to peek at */
         if (this.isEmpty()) {
-            throw new RuntimeException("Stack Underflow!");
+            throw new IllegalStateException("Stack Underflow!");
         }
 
+        /* Return the element at the top of the stack */
         return this.arr[this.tosIndex];
     }
 
