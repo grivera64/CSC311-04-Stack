@@ -26,6 +26,8 @@ public class StackDriver {
 //        stack.pop();                                // Stack Underflow!
 //        System.out.printf("Stack: %s\n", stack);
 
+        stack.push(10);
+        System.out.printf("Stack: %s\n", stack);
         stack.push(20);
         System.out.printf("Stack: %s\n", stack);
         stack.push(30);
@@ -44,21 +46,14 @@ public class StackDriver {
 
         System.out.printf("The top of the stack is: %s\n", stack.peek());
 
-//        stack.push(80);                         // Stack Overflow: it'll reallocate more space
-//        System.out.printf("Stack: %s\n", stack);
+        stack.push(80);                         // Stack Overflow: it'll reallocate more space
+        System.out.printf("Stack: %s\n", stack);
 
-        stack.pop();
-        System.out.printf("Stack: %s\n", stack);
-        stack.pop();
-        System.out.printf("Stack: %s\n", stack);
-        stack.pop();
-        System.out.printf("Stack: %s\n", stack);
-        stack.pop();
-        System.out.printf("Stack: %s\n", stack);
-        stack.pop();
-        System.out.printf("Stack: %s\n", stack);
-        stack.pop();
-        System.out.printf("Stack: %s\n", stack);
+        /* Clearing the stack */
+        for (int i = 0; i < 8; i++) {
+            stack.pop();
+            System.out.printf("Stack: %s\n", stack);
+        }
 //        stack.pop();                                  // Stack Underflow
 //        System.out.printf("Stack: %s\n", stack);
     }
